@@ -1,0 +1,30 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+const homeHref = import.meta.env.BASE_URL;
+---
+
+<div class="header-spacer" aria-hidden="true"></div>
+<div class="header__glass" aria-hidden="true"></div>
+<header class="header">
+  <div class="header__shell">
+    <div class="container header__track">
+      <div class="header__inner load-in load-in--header">
+        <a class="header__name" href={homeHref}>Mel Casey</a>
+        <nav class="header__nav-wrap" aria-label="Primary">
+          <div class="header__nav">
+            <div class="header__nav-links">
+              <span class="header__nav-highlight" aria-hidden="true"></span>
+              <a class="header__link" href="#work">Work</a>
+              <a class="header__link" href="#about">About</a>
+              <a class="header__link" href="#contact">Contact</a>
+            </div>
+            <div class="header__nav-item">
+              <ThemeToggle />
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

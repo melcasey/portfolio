@@ -1,0 +1,164 @@
+---
+interface Props {
+  title: string;
+  body?: string;
+  metaCompany: string;
+  metaCompanyUrl: string;
+  metaDates: string;
+  variant: 'phones' | 'desktop';
+  introReveal?: boolean;
+  comingSoon?: boolean;
+  note?: string;
+  link?: {
+    label: string;
+    href: string;
+  };
+  links?: {
+    label: string;
+    href: string;
+  }[];
+  desktopImage?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+}
+
+const {
+  title,
+  body,
+  metaCompany,
+  metaCompanyUrl,
+  metaDates,
+  variant,
+  introReveal = false,
+  comingSoon = false,
+  note,
+  link,
+  links,
+  desktopImage = {
+    src: `${import.meta.env.BASE_URL}images/application.png`,
+    alt: 'Rental application interface on realestate.com.au',
+    width: 535,
+    height: 351,
+  },
+} = Astro.props;
+
+const projectLinks = links ?? (link ? [link] : []);
+const phoneCheckinSrc = `${import.meta.env.BASE_URL}images/phone-checkin.png`;
+const phoneVideoSrc = `${import.meta.env.BASE_URL}images/phone-inspectionflow.mp4`;
+---
+
+<article class:list={['project-card', 'reveal', introReveal && 'reveal--intro-card']}>
+  <div class="project-card__content">
+    <div class="project-card__info">
+      <h2 class="project-card__title">{title}</h2>
+      <p class="project-card__body"><slot>{body}</slot></p>
+      {
+        projectLinks.length ? (
+          <div class="project-card__links">
+            {projectLinks.map((item) => (
+              <p class="project-card__link-wrap">
+                <span class="project-card__link-arrow" aria-hidden="true">→</span>
+                <a
+                  class="project-card__link text-link"
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.label}
+                </a>
+              </p>
+            ))}
+          </div>
+        ) : null
+      }
+      {
+        note ? (
+          <p class="project-card__note">
+            <span class="project-card__highlight-group">
+              <span class="project-card__highlight-text">{note}</span>
+              <span class="project-card__highlight-bar" aria-hidden="true" />
+            </span>
+          </p>
+        ) : null
+      }
+    </div>
+    <p class="project-card__meta">
+      <a class="project-card__meta-link" href={metaCompanyUrl} target="_blank" rel="noopener noreferrer">
+        <strong>{metaCompany}</strong>
+      </a><span>, {metaDates}</span>
+    </p>
+  </div>
+  <div class="project-card__preview">
+    {
+      comingSoon ? (
+        <p class="project-card__coming-soon" aria-hidden="true">
+          Coming Soon
+        </p>
+      ) : variant === 'phones' ? (
+        <div class="project-card__phones">
+          <div class="project-card__phone project-card__phone--back">
+            <img
+              src={phoneCheckinSrc}
+              alt=""
+              width="209"
+              height="451"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="project-card__phone project-card__phone--front">
+            <div class="project-card__phone-media" data-phone-video>
+              <video
+                class="project-card__phone-video"
+                src={phoneVideoSrc}
+                width="209"
+                height="452"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Property inspection flow"
+              />
+              <div class="project-card__video-controls">
+                <button
+                  type="button"
+                  class="project-card__video-btn"
+                  data-play-pause
+                  aria-label="Pause"
+                >
+                  ⏸
+                </button>
+                <button
+                  type="button"
+                  class="project-card__video-btn"
+                  data-speed
+                  aria-label="Change playback speed"
+                >
+                  1.4×
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          class="project-card__desktop"
+          style={`aspect-ratio: ${desktopImage.width} / ${desktopImage.height}`}
+        >
+          <img
+            src={desktopImage.src}
+            alt={desktopImage.alt}
+            width={desktopImage.width}
+            height={desktopImage.height}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      )
+    }
+  </div>
+</article>

@@ -1,0 +1,79 @@
+---
+type HeadlinePart =
+  | { type: 'word'; text: string; canva?: boolean }
+  | { type: 'highlight'; text: string };
+
+const headlineParts: HeadlinePart[] = [
+  { type: 'word', text: 'Product' },
+  { type: 'word', text: 'Designer' },
+  { type: 'word', text: 'at' },
+  { type: 'word', text: 'Canva,', canva: true },
+  { type: 'word', text: 'making' },
+  { type: 'highlight', text: 'delightful experiences' },
+  { type: 'word', text: 'that' },
+  { type: 'word', text: 'solve' },
+  { type: 'highlight', text: 'real problems' },
+  { type: 'word', text: 'for' },
+  { type: 'word', text: 'millions' },
+  { type: 'word', text: 'of' },
+  { type: 'word', text: 'people' },
+  { type: 'word', text: 'all' },
+  { type: 'word', text: 'over' },
+  { type: 'word', text: 'the' },
+  { type: 'word', text: 'world.' },
+];
+---
+
+<section class="hero container" aria-label="Introduction">
+  <h1 class="hero__headline">
+    {
+      headlineParts.map((part, index) => {
+        const wordIndex = index;
+
+        if (part.type === 'highlight') {
+          return (
+            <>
+              {index > 0 && ' '}
+              <span
+                class="hero__highlight-group"
+                style={`--word-i: ${wordIndex}`}
+              >
+                <span class="hero__word">{part.text}</span>
+                <span class="hero__highlight-bar" aria-hidden="true"></span>
+              </span>
+            </>
+          );
+        }
+
+        if (part.canva) {
+          return (
+            <>
+              {index > 0 && ' '}
+              <span class="hero__word" style={`--word-i: ${wordIndex}`}>
+                <a
+                  class="hero__canva"
+                  data-canva-confetti
+                  href="https://www.canva.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <em>Canva</em>
+                </a>
+                ,
+              </span>
+            </>
+          );
+        }
+
+        return (
+          <>
+            {index > 0 && ' '}
+            <span class="hero__word" style={`--word-i: ${wordIndex}`}>
+              {part.text}
+            </span>
+          </>
+        );
+      })
+    }
+  </h1>
+</section>

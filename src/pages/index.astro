@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import About from '../components/About.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <Hero />
+  <main class="main">
+    <section id="work" class="projects container" aria-label="Selected work">
+      <ProjectCard
+        title="Helping millions of Canva users turn their imagination into reality"
+        metaCompany="Canva"
+        metaCompanyUrl="https://www.canva.com/"
+        metaDates="2025–2026"
+        variant="desktop"
+        introReveal
+        desktopImage={{
+          src: `${import.meta.env.BASE_URL}images/stylematch.png?v=2`,
+          alt: 'Style Match interface in Canva',
+          width: 1920,
+          height: 1258,
+        }}
+        link={{
+          label: 'Style Match',
+          href: 'https://www.canva.com/design-school/resources/style-match',
+        }}
+      >
+        I led the vision and design for a suite of style-based features that help people generate
+        high-quality images and designs without advanced prompting. The flagship, Style Match,
+        launched{' '}
+        <a
+          href="https://www.youtube.com/live/gnqOzxpWHNA?si=4aocUmbpIyUoOIVb&t=2494"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          on stage
+        </a>{' '}
+        in 2025 and grew to 10M+ monthly active users.
+      </ProjectCard>
+      <ProjectCard
+        title="Connecting IRL and digital workflows"
+        body="To help property professionals process leads and applications from the road instead of waiting to get back to a desk, I designed REA's first inspection tool from the ground up. By connecting open homes with the office, Ignite syncs their workflows to start moving people through the property journey from the moment they walk through the door."
+        metaCompany="realestate.com.au"
+        metaCompanyUrl="https://www.realestate.com.au/"
+        metaDates="2023"
+        variant="phones"
+        link={{
+          label: 'Inspections in Ignite',
+          href: 'https://customer.realestate.com.au/inspections-in-ignite/',
+        }}
+      />
+      <ProjectCard
+        title="Getting tenants into the right property faster"
+        body="I helped simplify rental applications for tenants and property managers on realestate.com.au, making it quicker and easier to both apply and process applications so tenants could move in faster."
+        metaCompany="realestate.com.au"
+        metaCompanyUrl="https://www.realestate.com.au/"
+        metaDates="2021-2023"
+        variant="desktop"
+        links={[
+          {
+            label: 'Renter Profile',
+            href: 'https://www.realestate.com.au/rent/rental-applications',
+          },
+          {
+            label: 'Rental Applications in Ignite',
+            href: 'https://customer.realestate.com.au/residential/rental-applications-in-ignite/',
+          },
+        ]}
+      />
+    </section>
+    <About />
+  </main>
+  <Footer />
+</BaseLayout>

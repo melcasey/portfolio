@@ -1,0 +1,70 @@
+---
+import '@fontsource/instrument-serif/latin-400.css';
+import '@fontsource/instrument-serif/latin-400-italic.css';
+import '@fontsource/instrument-sans/latin-400.css';
+import '@fontsource/instrument-sans/latin-500.css';
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-700.css';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Mel Casey — Product Designer',
+  description = 'Product Designer at Canva, cutting through complexity to create simple, intuitive experiences.',
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href={`${base}favicon/favicon-96x96.png`} sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon/favicon.svg`} />
+    <link rel="shortcut icon" href={`${base}favicon/favicon.ico`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}favicon/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${base}favicon/site.webmanifest`} />
+    <meta name="apple-mobile-web-app-title" content="Mel Casey" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+    <script is:inline>
+      (function () {
+        var pref = localStorage.getItem('mel-theme-preference');
+        var theme;
+
+        if (pref === 'light' || pref === 'dark') {
+          theme = pref;
+        } else if (localStorage.getItem('mel-light-mode') === '1') {
+          theme = 'light';
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="page">
+      <slot />
+    </div>
+    <svg class="cursor" width="50" height="50" viewBox="0 0 50 50" aria-hidden="true">
+      <circle class="cursor__inner" cx="25" cy="25" r="6.25" />
+    </svg>
+    <script src="../scripts/effects.ts"></script>
+    <script src="../scripts/currently-reading.ts"></script>
+  </body>
+</html>

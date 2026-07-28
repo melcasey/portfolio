@@ -1,0 +1,129 @@
+---
+import CurrentlyReadingLink from './CurrentlyReadingLink.astro';
+
+const portraitSrc = `${import.meta.env.BASE_URL}images/portrait.png`;
+---
+
+<section id="about" class="about-block container" aria-labelledby="about-heading">
+  <div class="about-section reveal">
+    <h2 id="about-heading" class="about-section__heading">About</h2>
+    <div class="about-section__grid">
+      <div class="about-section__text">
+        <p>
+          I'm a designer based in Melbourne with over 10 years of experience across agencies and market-leading products. I'm at my happiest when I'm dissecting meaty problems and figuring out how to make complicated things feel simple.
+        </p>
+        <p>
+          While I studied design at university, I originally found my way into this world through the joy of using code to bring my interactive ideas to life. Today, I use vibe coded prototypes to make ideas tangible as early as possible, testing out concepts and collaborating with my team to ensure the final product in the hands of our users is as well crafted as it is functional.
+        </p>
+        <p>
+          Outside of work, I'm usually spending time with my partner and dog,{' '}
+          <a href="https://www.instagram.com/formingobjects/" target="_blank" rel="noopener noreferrer">
+            silversmithing
+          </a>{' '}
+          in the garage, or alternating between <CurrentlyReadingLink /> and writing.
+        </p>
+      </div>
+      <div class="about-section__photo-wrap">
+        <figure class="about-section__photo">
+          <img
+            src={portraitSrc}
+            alt="Portrait of Mel Casey"
+            width="752"
+            height="920"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-section reveal">
+    <div class="experience-section__head">
+      <h2 class="about-section__heading">Experience</h2>
+      <div class="experience-arrows" hidden>
+        <button
+          type="button"
+          class="experience-arrow experience-arrow--prev"
+          aria-label="Previous experience"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          class="experience-arrow experience-arrow--next"
+          aria-label="Next experience"
+        >
+          →
+        </button>
+      </div>
+    </div>
+    <div class="experience-frame">
+      <div class="experience-viewport" tabindex="0" aria-label="Work experience">
+        <div class="experience-carousel">
+        <article class="experience-card">
+          <div class="experience-card__header">
+            <a
+              class="experience-card__company text-link"
+              href="https://www.canva.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Canva
+            </a>
+            <p class="experience-card__role">→ Senior Product Designer, 2024–Present</p>
+          </div>
+          <p class="experience-card__body">
+            I recently joined the video team. Previously, I led product design for teams working on how people search, browse, and create elements inside the editor, from core discovery experiences through to AI-powered features.
+          </p>
+        </article>
+        <article class="experience-card">
+          <div class="experience-card__header">
+            <a
+              class="experience-card__company text-link"
+              href="https://www.rea-group.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              REA Group
+            </a>
+            <p class="experience-card__role">→ Product Designer, 2021–2024</p>
+          </div>
+          <p class="experience-card__body">
+            I led product design for two teams, primarily working on the customer SaaS platform Ignite to speed up agent workflows, as well as on better rental applications for users on realestate.com.au.
+          </p>
+        </article>
+        <article class="experience-card">
+          <div class="experience-card__header">
+            <a
+              class="experience-card__company text-link"
+              href="https://www.blissdigital.com.au/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Bliss
+            </a>
+            <p class="experience-card__role">→ Senior UX/UI Designer, 2017–2021</p>
+          </div>
+          <p class="experience-card__body">
+            I led design and strategy for a variety of government, health, education, and not-for-profit clients across web and mobile including The University of Melbourne, the National Museum of Australia, and Nintendo Australia.
+          </p>
+        </article>
+        <a
+          class="experience-linkedin"
+          href="https://www.linkedin.com/in/melcasey"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="See more on LinkedIn"
+        >
+          <span class="experience-linkedin__text">
+            <span class="experience-linkedin__arrow" aria-hidden="true">→</span>
+            {' '}See more on LinkedIn
+          </span>
+        </a>
+        </div>
+      </div>
+      <nav class="experience-dots" aria-label="Experience slides" hidden></nav>
+    </div>
+  </div>
+</section>

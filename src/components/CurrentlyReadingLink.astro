@@ -1,0 +1,13 @@
+---
+import readingData from '../../public/currently-reading.json';
+
+const coverUrls = JSON.stringify(readingData.books.map((book) => book.coverUrl));
+---
+
+<span
+  class="reading-link"
+  data-reading-link
+  data-reading-covers={coverUrls}
+>
+  reading
+</span>

@@ -1,0 +1,30 @@
+{
+  "updatedAt": "2026-07-02T01:07:37.438Z",
+  "shelfUrl": "https://www.goodreads.com/review/list/18822228-mel?shelf=currently-reading",
+  "books": [
+    {
+      "title": "Paladin's Strength (The Saint of Steel, #2)",
+      "author": "T. Kingfisher",
+      "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1613670790l/57119466._SY475_.jpg",
+      "url": "https://www.goodreads.com/book/show/57119466"
+    },
+    {
+      "title": "The Tropic of Serpents (The Memoirs of Lady Trent, #2)",
+      "author": "Marie Brennan",
+      "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1372990377l/17910078.jpg",
+      "url": "https://www.goodreads.com/book/show/17910078"
+    },
+    {
+      "title": "The Inheritance",
+      "author": "Robin Hobb",
+      "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1290919353l/8739264.jpg",
+      "url": "https://www.goodreads.com/book/show/8739264"
+    },
+    {
+      "title": "The Haunting of Hill House",
+      "author": "Shirley Jackson",
+      "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327871336l/89717._SY475_.jpg",
+      "url": "https://www.goodreads.com/book/show/89717"
+    }
+  ]
+}
