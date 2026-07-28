@@ -1495,7 +1495,8 @@ body.is-reading-hover * {
     --scroll-anchor-offset: 80px;
     --radius-project: 64px;
     --radius-card: 40px;
-    --radius-preview: 48px;
+    /* Scale with smaller phone mockups so corners don't look over-rounded */
+    --radius-preview: 28px;
     --radius-photo: 32px;
     --radius-nav: 100px;
     --gap-projects: 40px;
@@ -1647,6 +1648,7 @@ body.is-reading-hover * {
     --header-nav-gap: 0;
     --header-link-pad-block: 8px;
     --header-link-pad-inline: 10px;
+    --radius-preview: 22px;
   }
 
   .container {
