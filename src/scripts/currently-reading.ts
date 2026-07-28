@@ -192,7 +192,7 @@ class ReadingHoverFx14 {
 
 async function fetchCoverUrls(): Promise<string[]> {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}currently-reading.json`, {
+    const response = await fetch(`${import.meta.env.BASE_URL.replace(/\/?$/, '/')}currently-reading.json`, {
       cache: 'no-cache',
     });
     if (!response.ok) return [];

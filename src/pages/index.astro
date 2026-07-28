@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import About from '../components/About.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../lib/paths';
 ---
 
 <BaseLayout>
@@ -20,7 +21,7 @@ import Footer from '../components/Footer.astro';
         variant="desktop"
         introReveal
         desktopImage={{
-          src: `${import.meta.env.BASE_URL}images/stylematch.png?v=2`,
+          src: withBase('images/stylematch.png?v=2'),
           alt: 'Style Match interface in Canva',
           width: 1920,
           height: 1258,
