@@ -14,6 +14,7 @@ const OUTPUT_PATH = path.join(process.cwd(), 'public', 'currently-reading.json')
 
 async function main() {
   try {
+    await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
     const data = await fetchCurrentlyReading();
     await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
     console.log(`Wrote ${data.books.length} book(s) to ${OUTPUT_PATH}`);
@@ -30,10 +31,15 @@ async function main() {
         shelfUrl: 'https://www.goodreads.com/review/list/18822228-mel?shelf=currently-reading',
         books: [],
       };
+      await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
       await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(fallback, null, 2)}\n`, 'utf8');
       console.warn('Wrote empty fallback currently-reading.json');
     }
   }
 }
 
-main();
+main().catch((error) => {
+  const message = error instanceof Error ? error.message : String(error);
+  console.warn(`Unexpected fetch script error: ${message}`);
+  process.exitCode = 0;
+});
