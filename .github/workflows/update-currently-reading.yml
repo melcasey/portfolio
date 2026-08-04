@@ -19,18 +19,10 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
-          cache: npm
 
-      # Only need tsx + fast-xml-parser to hit the Goodreads RSS feed.
-      # --ignore-scripts skips Astro/sharp native installs that are unused here
-      # and were failing this job before the fetch step could run.
-      - name: Install dependencies
-        run: npm ci --ignore-scripts --include=dev
-        env:
-          NODE_ENV: development
-
+      # No npm install — script is dependency-free Node.
       - name: Fetch Goodreads shelf
-        run: npm run fetch:reading
+        run: node scripts/fetch-currently-reading.mjs
 
       - name: Commit and push changes
         run: |

@@ -1,18 +1,24 @@
 {
-  "updatedAt": "2026-07-02T01:07:37.438Z",
+  "updatedAt": "2026-08-04T00:55:29.414Z",
   "shelfUrl": "https://www.goodreads.com/review/list/18822228-mel?shelf=currently-reading",
   "books": [
+    {
+      "title": "Titanchild (Talon Duology, #2)",
+      "author": "Jen Williams",
+      "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1715951201l/212173742._SY475_.jpg",
+      "url": "https://www.goodreads.com/book/show/212173742"
+    },
+    {
+      "title": "Story Genius: How to Use Brain Science to Go Beyond Outlining and Write a Riveting Novel (Before You Waste Three Years Writing 327 Pages That Go Nowhere)",
+      "author": "Lisa Cron",
+      "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1464018328l/27833542.jpg",
+      "url": "https://www.goodreads.com/book/show/27833542"
+    },
     {
       "title": "Paladin's Strength (The Saint of Steel, #2)",
       "author": "T. Kingfisher",
       "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1613670790l/57119466._SY475_.jpg",
       "url": "https://www.goodreads.com/book/show/57119466"
-    },
-    {
-      "title": "The Tropic of Serpents (The Memoirs of Lady Trent, #2)",
-      "author": "Marie Brennan",
-      "coverUrl": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1372990377l/17910078.jpg",
-      "url": "https://www.goodreads.com/book/show/17910078"
     },
     {
       "title": "The Inheritance",

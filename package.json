@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "fetch:reading": "tsx scripts/fetch-currently-reading.ts",
+    "fetch:reading": "node scripts/fetch-currently-reading.mjs",
     "astro": "astro"
   },
   "dependencies": {
