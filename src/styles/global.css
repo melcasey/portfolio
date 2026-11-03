@@ -93,9 +93,6 @@
   --project-card-height: 640px;
   --corner-shape-smooth: squircle;
 
-  --reading-reveal-width: 150px;
-  --reading-reveal-height: 225px;
-
   --gap-projects: 72px;
   --gap-sections: 216px;
   --gap-about-subsections: 168px;
@@ -1037,85 +1034,6 @@ a {
   margin-bottom: 0;
 }
 
-.about-section__text .reading-link {
-  color: var(--color-hero-canva);
-  font-weight: 500;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
-  text-underline-offset: 3px;
-  transition: text-decoration-color 0.2s ease;
-}
-
-.about-section__text .reading-link:hover,
-.about-section__text .reading-link.is-reveal-active {
-  text-decoration-color: color-mix(in srgb, currentColor 80%, transparent);
-}
-
-.reading-link {
-  position: relative;
-  display: inline;
-  cursor: pointer;
-}
-
-.reading-link.is-reveal-active {
-  z-index: 1000;
-  cursor: none;
-}
-
-body.is-reading-hover {
-  cursor: none;
-}
-
-body.is-reading-hover * {
-  cursor: none !important;
-}
-
-/* Codrops Effect 14 — reading-reveal lives on document.body */
-.reading-reveal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1001;
-  width: var(--reading-reveal-width);
-  height: var(--reading-reveal-height);
-  pointer-events: none;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-}
-
-.reading-reveal__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.reading-reveal__img {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  background-color: var(--color-surface);
-  background-size: cover;
-  background-position: center;
-  border: 1px solid var(--color-preview-border);
-  border-radius: 3px;
-  will-change: transform, opacity;
-}
-
-@media (max-width: 640px) {
-  :root {
-    --reading-reveal-width: 125px;
-    --reading-reveal-height: 187.5px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reading-reveal__img {
-    will-change: auto;
-    transition: none !important;
-  }
-}
-
 .about-section__photo-wrap {
   display: flex;
   justify-content: center;
@@ -1486,6 +1404,13 @@ body.is-reading-hover * {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* Side-by-side phones are smaller below 1536px, so a 76px radius over-rounds them */
+@media (min-width: 1137px) and (max-width: 1535px) {
+  :root {
+    --radius-preview: 36px;
   }
 }
 
