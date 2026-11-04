@@ -1414,6 +1414,16 @@ a {
   }
 }
 
+/* Smaller desktops sit at the top of the fluid scale, so type matched a large
+   monitor. Ease it down slightly; wider laptop windows climb back toward the max. */
+@media (min-width: 1137px) and (max-width: 1799px) {
+  :root {
+    --text-xl: clamp(1.375rem, 0.875rem + 0.625vw, 1.5rem);
+    --text-2xl: clamp(3rem, 2rem + 1.25vw, 3.25rem);
+    --text-3xl: clamp(3.5rem, 2.5rem + 1.25vw, 4rem);
+  }
+}
+
 /* Stack when viewport can't fit the side-by-side card layout */
 @media (max-width: 1136px) {
   :root {
