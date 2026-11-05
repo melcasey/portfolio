@@ -539,8 +539,7 @@ a {
 }
 
 /* The dark-mode hover pill is the same orange as the dot. */
-[data-theme='dark'] .header__link--contact:hover .status-dot,
-[data-theme='dark'] .header__link--contact:focus .status-dot {
+[data-theme='dark'] .header__link--contact.is-highlighted .status-dot {
   background: rgb(244 236 175 / 0.55);
 }
 

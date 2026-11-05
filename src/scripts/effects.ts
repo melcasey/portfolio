@@ -393,8 +393,15 @@ function initNavHighlight() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let activeLink: HTMLElement | null = null;
 
+  const setHighlightedLink = (link: HTMLElement | null) => {
+    links.forEach((item) => {
+      item.classList.toggle('is-highlighted', item === link);
+    });
+  };
+
   const moveHighlight = (link: HTMLElement) => {
     activeLink = link;
+    setHighlightedLink(link);
     const containerRect = container.getBoundingClientRect();
     const linkRect = link.getBoundingClientRect();
 
@@ -406,6 +413,7 @@ function initNavHighlight() {
 
   const hideHighlight = () => {
     activeLink = null;
+    setHighlightedLink(null);
     highlight.classList.remove('is-visible');
   };
 
