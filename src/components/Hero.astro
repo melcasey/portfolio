@@ -6,21 +6,17 @@ type HeadlinePart =
 const headlineParts: HeadlinePart[] = [
   { type: 'word', text: 'Product' },
   { type: 'word', text: 'Designer' },
-  { type: 'word', text: 'at' },
-  { type: 'word', text: 'Canva,', canva: true },
-  { type: 'word', text: 'making' },
+  { type: 'word', text: 'in' },
+  { type: 'word', text: 'Melbourne,' },
+  { type: 'word', text: 'crafting' },
   { type: 'highlight', text: 'delightful experiences' },
   { type: 'word', text: 'that' },
   { type: 'word', text: 'solve' },
   { type: 'highlight', text: 'real problems' },
-  { type: 'word', text: 'for' },
-  { type: 'word', text: 'millions' },
-  { type: 'word', text: 'of' },
-  { type: 'word', text: 'people' },
-  { type: 'word', text: 'all' },
-  { type: 'word', text: 'over' },
-  { type: 'word', text: 'the' },
-  { type: 'word', text: 'world.' },
+  { type: 'word', text: '\u2014 most' },
+  { type: 'word', text: 'recently' },
+  { type: 'word', text: 'at' },
+  { type: 'word', text: 'Canva', canva: true },
 ];
 ---
 
@@ -57,9 +53,7 @@ const headlineParts: HeadlinePart[] = [
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <em>Canva</em>
-                </a>
-                ,
+                  <em>Canva</em></a>{'.'}
               </span>
             </>
           );

@@ -4,11 +4,6 @@ const LEGACY_THEME_KEY = 'mel-theme';
 
 export type Theme = 'light' | 'dark';
 
-export function getSystemTheme(): Theme {
-  if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 export function getStoredThemePreference(): Theme | null {
   const stored = localStorage.getItem(THEME_PREFERENCE_KEY);
   if (stored === 'light' || stored === 'dark') return stored;
@@ -21,7 +16,7 @@ export function getStoredThemePreference(): Theme | null {
 }
 
 export function getPreferredTheme(): Theme {
-  return getStoredThemePreference() ?? getSystemTheme();
+  return getStoredThemePreference() ?? 'dark';
 }
 
 export function applyTheme(theme: Theme) {
@@ -58,13 +53,6 @@ export function initThemeToggle() {
 
   toggle.addEventListener('click', () => {
     setTheme(getPreferredTheme() === 'dark' ? 'light' : 'dark');
-    syncToggle();
-  });
-
-  const systemQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  systemQuery.addEventListener('change', () => {
-    if (getStoredThemePreference() !== null) return;
-    applyTheme(getSystemTheme());
     syncToggle();
   });
 

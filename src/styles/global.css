@@ -109,7 +109,7 @@
   --hero-start-delay: 0.4s;
   --hero-word-stagger: 0.095s;
   --hero-word-duration: 1.35s;
-  --hero-word-count: 17;
+  --hero-word-count: 13;
   --hero-highlight-duration: 0.55s;
   --hero-highlight-inset-block: 0.16em;
   --header-load-duration: 0.85s;
@@ -168,8 +168,8 @@
   );
   --text-display: clamp(
     3rem,
-    calc(3rem + 3rem * ((100vw - var(--fluid-screen-min)) / var(--fluid-screen-range))),
-    6rem
+    calc(3rem + 2.5rem * ((100vw - var(--fluid-screen-min)) / var(--fluid-screen-range))),
+    5.5rem
   );
 
   --leading-display: 1.098;
@@ -197,6 +197,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--scroll-anchor-offset);
+  overscroll-behavior-y: none;
 }
 
 #work,
@@ -526,6 +527,30 @@ a {
 .header__link:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 2px;
+}
+
+.header__link--contact .status-dot {
+  position: relative;
+  top: -0.45em;
+  width: 6px;
+  height: 6px;
+  margin-left: 3px;
+  transition: background-color 0.2s ease;
+}
+
+/* The dark-mode hover pill is the same orange as the dot. */
+[data-theme='dark'] .header__link--contact:hover .status-dot,
+[data-theme='dark'] .header__link--contact:focus .status-dot {
+  background: rgb(244 236 175 / 0.55);
+}
+
+.status-dot {
+  display: block;
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-link-accent);
 }
 
 /* Theme toggle */
@@ -1285,9 +1310,12 @@ a {
   color: var(--color-footer-text);
   padding: 88px 0;
   margin-top: var(--gap-sections);
+  /* Cover any sliver or overscroll below the footer with the footer colour. */
+  box-shadow: 0 50vh 0 50vh var(--color-footer-bg);
   transition:
     background-color 0.35s ease,
-    color 0.35s ease;
+    color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .footer__inner {
@@ -1296,11 +1324,38 @@ a {
   gap: 40px;
 }
 
+.footer__heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+}
+
 .footer__heading {
   margin: 0;
   font-size: var(--text-lg);
   font-weight: 500;
   line-height: var(--leading-body);
+}
+
+.footer__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer__status .status-dot {
+  width: 6px;
+  height: 6px;
 }
 
 .footer__row {
@@ -1360,6 +1415,13 @@ a {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* The footer is the last element. A downward reveal shift extends the page
+   and leaves a strip of the page background below it until the animation ends. */
+.footer.reveal,
+.footer.reveal.is-visible {
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
